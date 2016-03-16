@@ -91,6 +91,7 @@ public class PQHeap implements PQ {
 	@Override
 	public void insert(Element e) { 
 		int i = 0;
+		// Find first empty index
 		while (array[i] != null) {
 			i++;
 		}
