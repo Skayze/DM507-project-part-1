@@ -1,3 +1,12 @@
+/* 			DM507
+ * 			Group members:
+ * 			Christian Bjørn Moeslund (chmoe13@student.sdu.dk)
+ * 			Alexander Hvilshøj (alhvi15@student.sdu.dk)
+ * 
+ */
+
+
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -5,8 +14,9 @@ import java.util.Scanner;
 public class Heapsort {
 
 	public static void main(String[] args) {
-
+		//Initializing Scanner with standard input
 		Scanner sc = new Scanner(System.in);
+		//Initializing array, for holding input initially
 		List<Integer> initArray = new ArrayList<>();
 		// Getting input
 		while (sc.hasNext()) {
