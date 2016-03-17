@@ -30,7 +30,8 @@ public class PQHeap implements PQ {
 
 	private static Element[] array;
 	static int ArraySize;
-	//Skriv hvorfor i+1, og hvad funktionen laver
+	// Using i+1 to make actual code more similar to pseudocode, 
+	// and -1 at the end to utilize index 0 of arrays
 	public int Parent(int i) {
 		return Math.floorDiv((i + 1), 2) - 1;
 	}
@@ -45,12 +46,14 @@ public class PQHeap implements PQ {
 
 	public void minHeapify(int i) {
 
+		// Smallest, left, and right are indices
 		int smallest = i;
 		// if i = 3, this is the 4th index, and as such, the Left and Right
 		// nodes will be the 8th and 9th indices = 7 and 8
-		int left = Left(i); // SMallest, left and right are indices
+		int left = Left(i); 
 		int right = Right(i);
 
+		// Left and right have the same code, but with "left" replaced by "right"
 		if (left < ArraySize) {
 			if (array[left].key < array[i].key) {
 
@@ -97,7 +100,8 @@ public class PQHeap implements PQ {
 		}
 		array[i] = e;
 		while (i > 0 && array[Parent(i)].key > array[i].key) {
-			// Swapping array[i] with its parent:
+			// Swapping array[i] with its parent if array[i] is smaller than its parent,
+			// using a temporary variable
 			Element temp = array[i];
 			array[i] = array[Parent(i)];
 			array[Parent(i)] = temp;
@@ -110,6 +114,8 @@ public class PQHeap implements PQ {
 
 	@Override
 	public Element extractMin() {
+		// Returns the smallest element in the heap and deletes it, making sure 
+		// the array is still heap ordered
 		ArraySize--;
 
 		Element min = array[0];
